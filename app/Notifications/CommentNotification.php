@@ -15,12 +15,14 @@ class CommentNotification extends Notification
 
     protected $comment;
 
+    public $data;
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($comment)
     {
-        $comment = $this->comment;
+
+        $this->comment = $comment;
     }
 
     /**
@@ -40,6 +42,7 @@ class CommentNotification extends Notification
     {
         return [
             'message' => 'new comment added.',
+            'comment' => $this->comment,
         ];
     }
 
@@ -50,6 +53,9 @@ class CommentNotification extends Notification
      */
     public function toArray(object $notifiable): array
     {
-        return [];
+        return [
+            'message' => 'new comment added.',
+            'data' => 'sannaa'
+        ];
     }
 }

@@ -54,9 +54,7 @@ class UserController extends Controller
             'password' => 'required|string',
 
         ]);
-
         $user = User::where('email', $request->email)->first();
-
         if ($user && Hash::check($request->password, $user->password)) {
             $token =  $user->createToken($request->userAgent());
 
@@ -66,12 +64,10 @@ class UserController extends Controller
                 'user' => $user
             ], 201);
         }
-
         return response()->json([
             'message' => 'no token baby'
         ], 401);
     }
-
     public function logout($token = null)
     {
         $user = Auth::guard('sanctum')->user();

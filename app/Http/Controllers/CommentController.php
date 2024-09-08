@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Notifications\CommentNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class CommentController extends Controller
 {
@@ -28,13 +29,17 @@ class CommentController extends Controller
         $post = Post::findOrFail($post_id)->author_id;
         $postOwner = User::findOrFail($post);
 
-        $notification = new CommentNotification();
+        $notification = new CommentNotification($comment);
         $postOwner->notify($notification);
 
+
+        // dd($postOwner->notifications);
+
+
         return response()->json([
-            'massage' => 'comment add successfully',
+            'massage' => 'comment added successfully',
             'post' => $comment,
-            // 'notification' => ''
+            'notification' => $postOwner->notifications->first(),
         ]);
     }
 

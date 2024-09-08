@@ -26,4 +26,5 @@ Route::get('post', [PostController::class, 'index'])->middleware([AdminMiddlewar
 Route::get('post/{id}', [PostController::class, 'show'])->middleware('throttle:60,1');
 
 
-Route::apiResource('post/{post_id}/comments', CommentController::class)->middleware('throttle:60,1');
+Route::apiResource('post/{post_id}/comments', CommentController::class)->middleware(['auth:sanctum', 'throttle:60,1'])->except('index');
+Route::get('post/{post_id}/comments', [CommentController::class, 'index'])->middleware('throttle:60,1');
