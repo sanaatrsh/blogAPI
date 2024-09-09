@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "0dfe0191-4896-4276-8c7d-4dcaacfca80a",
+		"name": "api-blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "get posts",
+					"id": "912161ab-0b74-4685-a10d-00590084289a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "r5YWQdWXqHnNoEdefCflaAZe0if3oKMoZrCu4jPc39316492"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}post?page=1",
+							"host": [
+								"{{host}}post"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new post",
+					"id": "0b5286a6-e106-40a4-ae24-7974cfe5282c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "9Ezkt6F4pl32UBoKJZHFaUJixV0Ajbpzuq37mEIS50678a7d"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "i wanna sleep",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "sos help",
+									"type": "text"
+								},
+								{
+									"key": "author_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef531f9-b837-4530-816b-40e36aa11f7e"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}post?",
+							"host": [
+								"{{host}}post"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"id": "c3642051-a1ff-4939-8300-db7b922685d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{host}}post/3"
+					},
+					"response": []
+				},
+				{
+					"name": "update post",
+					"id": "6dfee90b-cf37-45ff-8a6e-31a58af85d6b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}post/3?title=that's okay&body=and I can't move on becouse it means there's no hope",
+							"host": [
+								"{{host}}post"
+							],
+							"path": [
+								"3"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "that's okay",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "and I can't move on becouse it means there's no hope",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one post",
+					"id": "3752d2b6-479c-4c23-8aca-37ca51813290",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "{{host}}post/1"
+					},
+					"response": []
+				}
+			],
+			"id": "d833d7dc-8fc2-49d5-9b3a-e5ff60610b4a"
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "show comments",
+					"id": "9c3d6f81-7cb9-4d5e-87b6-27331bfcf80c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "{{host}}post/3/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "add comment",
+					"id": "709f02de-7646-46ed-8baa-1a09bef632e9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post_id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "hello it's me, I was woundeing if after all this years you'd like to meet",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{host}}post/3/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "update comment",
+					"id": "eb1aa9b1-bbab-46ae-ad04-4aefa17dc3ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}post/3/comments/1?comment=maybe I'm the problem",
+							"host": [
+								"{{host}}post"
+							],
+							"path": [
+								"3",
+								"comments",
+								"1"
+							],
+							"query": [
+								{
+									"key": "comment",
+									"value": "maybe I'm the problem"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"id": "512e4bc9-c0d7-47f1-9bb9-247853f102fb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{host}}post/3/comments/7"
+					},
+					"response": []
+				}
+			],
+			"id": "34707dce-81b3-430e-bb11-7717955fe82d"
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signin",
+					"id": "80bc91fe-b17a-44ea-95c2-5483f26e07d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "sana",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "example1@abc.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{host}}auth/signIn"
+					},
+					"response": []
+				},
+				{
+					"name": "logIn",
+					"id": "d00fcffa-9c4f-4cf5-a277-a05810890ed4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "example4@abc.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{host}}auth/logIn"
+					},
+					"response": []
+				},
+				{
+					"name": "logOut",
+					"id": "d5507b45-4805-42ad-8b97-3db379fa534f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "JA4Hv7N39ZMS9PnO6IVRYsmijdxadKwIoICZBtl574634463"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}auth/logOut"
+					},
+					"response": []
+				}
+			],
+			"id": "83fc655b-801d-4edd-8766-1673033830d6"
+		}
+	],
+	"variable": [
+		{
+			"key": "post_id",
+			"value": "post_id"
+		}
+	]
+}
