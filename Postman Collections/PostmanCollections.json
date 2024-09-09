@@ -18,11 +18,16 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "r5YWQdWXqHnNoEdefCflaAZe0if3oKMoZrCu4jPc39316492"
+								"token": "ZEus3bjVFuwuWXP6sQH0jOSSKrpFE3vKjScAk5G1e28a2c08"
 							}
 						},
 						"method": "GET",
 						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|2aglu5uOQyiU4gJo4216I6QdTuHfCcVoN3KhmCwf1cedad51",
+								"type": "text"
+							},
 							{
 								"key": "Accept",
 								"value": "application/json",
@@ -51,14 +56,13 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "9Ezkt6F4pl32UBoKJZHFaUJixV0Ajbpzuq37mEIS50678a7d"
-							}
-						},
 						"method": "POST",
 						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|2aglu5uOQyiU4gJo4216I6QdTuHfCcVoN3KhmCwf1cedad51",
+								"type": "text"
+							},
 							{
 								"key": "Accept",
 								"value": "application/json",
@@ -309,6 +313,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "doFrhUfntRNC52lnHgvrOYFk2tAZn53cyiRhCCFJ765814af"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "{{host}}post/3/comments/7"
@@ -346,7 +356,7 @@
 								},
 								{
 									"key": "email",
-									"value": "example1@abc.com",
+									"value": "example100@abc.com",
 									"type": "text"
 								},
 								{
@@ -379,7 +389,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "example4@abc.com",
+									"value": "example1@abc.com",
 									"type": "text"
 								},
 								{
