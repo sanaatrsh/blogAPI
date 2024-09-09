@@ -22,9 +22,10 @@ Route::group(['prefix' => 'auth', 'middleware' => 'throttle:60,1'], function () 
 
 
 Route::apiResource('post', PostController::class)->middleware(['auth:sanctum', 'throttle:60,1'])->except('index', 'show');
-Route::get('post', [PostController::class, 'index'])->middleware([AdminMiddleware::class]);
+Route::get('post', [PostController::class, 'index']);
 Route::get('post/{id}', [PostController::class, 'show'])->middleware('throttle:60,1');
 
 
-Route::apiResource('post/{post_id}/comments', CommentController::class)->middleware(['auth:sanctum', 'throttle:60,1'])->except('index');
+Route::apiResource('post/{post_id}/comments', CommentController::class)->middleware(['auth:sanctum', 'throttle:60,1'])->except('index', 'destroy');
 Route::get('post/{post_id}/comments', [CommentController::class, 'index'])->middleware('throttle:60,1');
+Route::delete('post/{post_id}/comments/{id}', [CommentController::class, 'destroy'])->middleware(['auth:sanctum', AdminMiddleware::class, 'throttle:60,1']);
